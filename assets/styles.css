@@ -1,0 +1,35 @@
+
+/* Base styles for the input */
+.custom-input1 {
+    margin-top: 8px;
+    margin-bottom: 12px;
+    width: 250px;
+    height: 15px;
+    font-size: 12px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    outline: none !important; /* Ensures no default outline */
+    box-shadow: none !important; /* Removes any glowing red outline */
+}
+
+/* customize input appeatance */
+.custom-input2 {
+    margin-top: 8px;      /* Adjusts the margin above the box */
+    margin-bottom: 5px;  /* Adjusts the margin below the box */
+    width: 250px;         /* Adjusts the width */
+    height: 35px;        /* Adjusts the height */
+    font-size: 12px;      /* Changes text size */
+    padding: 5px;         /* Adds space inside the input box */
+}
+
+/* Override the red outline when the input is required and empty */
+.custom-input1:invalid {
+    outline: none !important;
+    border: 1px solid #ccc !important; /* Keep the default border */
+    box-shadow: none !important; /* Removes default red glow */
+}
+
+/* Show red border only when user focuses on an invalid input */
+.custom-input1:invalid:focus {
+    border: 1px solid red !important;
+}
