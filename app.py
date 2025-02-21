@@ -10,6 +10,7 @@
 # Import required libraries
 import dash
 import dash_bootstrap_components as dbc
+from navbar import navbar
 
 # Add Bootstrap and FontAwesome
 external_stylesheets = [
@@ -22,5 +23,15 @@ app = dash.Dash(__name__, use_pages=True,
                 external_stylesheets=external_stylesheets, 
                 suppress_callback_exceptions=True)
 
- # Required for deployment on Render
-server = app.server  
+# Layout - This is the only layout needed
+app.layout = dbc.Container([
+    navbar,  # Navigation bar
+    dbc.Row([dbc.Col(dash.page_container, width=12)]),  # Loads the correct page
+], fluid=True)
+
+# Expose the server for deployment
+server = app.server
+
+# Run the app
+if __name__ == "__main__":
+    app.run_server(debug=True)
