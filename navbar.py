@@ -15,12 +15,26 @@ from dash import dcc
 navbar = dbc.NavbarSimple(
     brand="Dash App Demo",
     brand_href="/",
-    color="black",
+    color="#4D4D4F",
     dark=True,
     children=[
         dbc.NavItem(dcc.Link("Home", href="/", className="nav-link")),
-        dbc.NavItem(dcc.Link("About", href="/about", className="nav-link")),
-        dbc.NavItem(dcc.Link("Content", href="/content", className="nav-link")),
-        dbc.NavItem(dcc.Link("Contact", href="/contact", className="nav-link")),
-    ]
+        dbc.NavItem(dcc.Link("About", href="/about", className="nav-link text-lowercase fw-light fs-5 text-white")),
+        dbc.NavItem(dcc.Link("Content", href="/content", className="nav-link text-titlecase fw-bold fs-5 text-white")),
+        dbc.NavItem(dcc.Link("Contact", href="/contact", className="nav-link text-uppercase fw-bold fs-5 text-white")),
+        dbc.NavItem(dbc.NavLink("GitHub", href="https://github.com/corneliustanui", external_link=True, className="nav-link")),
+        dbc.NavItem(dbc.NavLink("LinkedIn", href="https://ke.linkedin.com/in/cornelius-tanui-527979b9", external_link=True)),
+
+        # The main dropdown link text
+        dbc.DropdownMenu(
+            label="Contact",
+            nav=True,
+            in_navbar=True,
+            children=[
+                dbc.DropdownMenuItem("GitHub", href="https://github.com/corneliustanui", external_link=True),
+                dbc.DropdownMenuItem("LinkedIn", href="https://ke.linkedin.com/in/cornelius-tanui-527979b9", external_link=True)
+            ]
+        ),
+    ],
+    style={"height": "30%", "width": "100%", 'margin': "0px", 'padding': "0px"}
 )
